@@ -1,0 +1,6 @@
+.bx-content{width:50%;margin: 0 auto 50px;}
+.bx-content img{width:100%;height: 280px;}
+.bx-control{width: 80%;margin: 20px auto;}
+.bx-control button{width:150px;height: 40px;margin:0 50px 0 0;background-color: #23cffc;font-size:18px;color:#fff;}
+.bx-control button:hover{background-color: #0b93d1;}
+.bx-control input{margin: 5px 0;}

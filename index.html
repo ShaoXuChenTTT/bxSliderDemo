@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slider Demo</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="bx-content">
+        <ul class="bxslider" id="bxslider">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+        </ul>
+    </div>
+    <div class="bx-control">
+    	<button onclick="changePro()">应用</button>
+        <button onclick="initPro()">恢复默认</button>
+        </br>
+    	<input type="text" class="mode" default="horizontal"/>mode(滚动方向，vertical-垂直，horizontal-水平,fade-淡入淡出 ,默认horizontal)</br>
+        <input type="text" class="speed" default="500"/>speed(幻灯片过渡时间，单位ms，默认值500)</br>
+        <input type="text" class="slideMargin" default="0"/>slideMargin(每个幻灯片之间的距离，单位未知，默认值0)</br>
+        <input type="text" class="startSlide" default="0"/>startSlide(开始的第一张幻灯片的索引，值从0开始计数，默认为0)</br>
+        <input type="text" class="randomStart" default="false"/>randomStart(是否从随机位置开始幻灯片，默认值false)</br>
+        <input type="text" class="slideSelector" default=""/>slideSelector(被应用为幻灯片的选择器，默认情况下会使用所有的直接子元素作为幻灯片)</br>
+        <input type="text" class="infiniteLoop" default="true"/>infiniteLoop(幻灯片是否循环放映，默认为true)</br>
+        <input type="text" class="hideControlOnEnd" default="false"/>hideControlOnEnd(当幻灯片结束放映时是否隐藏下一个的按钮，只有当infiniteLoop为false时生效，默认为false)</br>
+        <input type="text" class="easing" default="null"/>easing(动画参数，可以使用'linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'等值)</br>
+        <input type="text" class="captions" default="false"/>captions(是否包含图像的说明文字，默认为false)</br>
+        <input type="text" class="ticker" default="false"/>ticker(在代码模式下使用滑块（类似于新闻）默认为false)</br>
+        <input type="text" class="tickerHover" default="false"/>tickerHover(Ticker 将暂停，当鼠标悬停在滑块，默认为false)</br>
+        <input type="text" class="adaptiveHeight" default="false"/>adaptiveHeight(根据每个幻灯片高度动态调整滑块高度，默认为false)</br>
+    	<input type="text" class="adaptiveHeightSpeed" default="500"/>adaptiveHeightSpeed(幻灯片自适应高度速度，默认为500,单位ms)</br>
+        <input type="text" class="responsive" default="true"/>responsive(启用或禁用自动调整滑块，默认为true)</br>
+        <input type="text" class="useCSS" default="true"/>useCSS(是否启用CSS过渡动画，如果为false，则使用jQuery的animate动画)</br>
+        <input type="text" class="video" default="false"/>video(幻灯片中是否包含视频，默认为false)</br>
+        <input type="text" class="preloadImages" default="visible"/>preloadImages(是否在开始前先加载完图片，all-预加载全部图片，visible-只加载一开始要显示的图片)</br>
+        <input type="text" class="touchEnabled" default="true"/>touchEnabled(是否允许触摸滑动过渡，默认为true)</br>
+        <input type="text" class="swipeThreshold" default="50"/>swipeThreshold(触摸移动的像素，默认为50)</br>
+        <input type="text" class="oneToOneTouch" default="true"/>oneToOneTouch(If true, non-fade slides follow the finger as it swipes)</br>
+        <input type="text" class="preventDefaultSwipeX" default="true"/>preventDefaultSwipeX(是否锁定X轴的手指滑动，默认为true)</br>
+        <input type="text" class="preventDefaultSwipeY" default="false"/>preventDefaultSwipeY(是否锁定Y轴的手指滑动，默认为false)</br>
+
+        <input type="text" class="pager" default="true"/>pager(是否需要添加一个分页器，默认为true)</br>
+        <input type="text" class="pagerType" default="full"/>pagerType(分页器类型是否完整，默认为full，若使用'short'的简写模式则会改为x/y的形式)</br>
+        <input type="text" class="pagerShortSeparator" default="/"/>pagerShortSeparator(当pagerType为short的简写模式时使用的分割符号，默认为'/')</br>
+        <input type="text" class="pagerSelector" default=""/>pagerSelector(使用选择器指定的元素作为分页器，默认为空，即在bx-viewport添加一个分页器)</br>
+        <input type="text" class="pagerCustom" default="null"/>pagerCustom(Parent element to be used as the pager.)</br>
+        <input type="text" class="buildPager" default="null"/>buildPager(function(slideIndex)，利用函数来改变默认的分页器的值，默认为null，即不做处理)</br>
+
+        <input type="text" class="controls" default="true"/>controls(是否添加"Next" / "Prev"控制器，默认为true)</br>
+    	<input type="text" class="nextText" default="Next"/>nextText(Next按钮的文字，默认为'Next')</br>
+        <input type="text" class="prevText" default="Prev"/>prevText(Prev按钮的文字，默认为'Prev')</br>
+        <input type="text" class="nextSelector" default="null"/>nextSelector(让某个元素具有'Next'的功能，默认为null)</br>
+        <input type="text" class="prevSelector" default="null"/>prevSelector(让某个元素具有'Prev'的功能，默认为null)</br>
+    	<input type="text" class="autoControls" default="false"/>autoControls(是否要创建一个具有开始/停止功能的按钮，默认为false)</br>
+        <input type="text" class="startText" default="Start"/>startText(开始按钮的文字，默认为'Start')</br>
+        <input type="text" class="stopText" default="Stop"/>stopText(停止按钮的文字，默认为'Stop')</br>
+        <input type="text" class="autoControlsCombine" default="false"/>autoControlsCombine(当幻灯片在播放时只显示停止按钮，反之亦然)</br>
+    	<input type="text" class="autoControlsSelector" default="null"/>autoControlsSelector(使一个元素具有自动控制的功能，默认为null，传入jQuery selector)</br>
+
+    	<input type="text" class="auto" default="false"/>auto(幻灯片是否自动放映，默认为false)</br>
+        <input type="text" class="pause" default="4000"/>pause(幻灯片自动放映的时间间隔，默认为4000，单位ms)</br>
+        <input type="text" class="autoStart" default="false"/>autoStart(是否自动开始，默认为false，即只能通过点击Start按钮来开始放映)</br>
+        <input type="text" class="autoDirection" default="next"/>autoDirection(幻灯片自动放映顺序，默认为next-向后放映，另一个选项是prev)</br>
+        <input type="text" class="autoHover" default="false"/>autoHover(鼠标移上幻灯片时是否暂停放映，默认为false)</br>
+        <input type="text" class="autoDelay" default="0"/>autoDelay(自动播放之前的延迟时间，单位ms，默认为0)</br>
+
+        <input type="text" class="minSlides" default="1"/>minSlides(显示的滑块的最小数目，默认为1)</br>
+        <input type="text" class="maxSlides" default="1"/>maxSlides(显示的滑块的最大数目，默认为1)</br>
+        <input type="text" class="moveSlides" default="0"/>moveSlides(一次移动的页数，如果为0，则移动一整屏，默认为0)</br>
+        <input type="text" class="slideWidth" default="0"/>slideWidth(每一个滑块的宽度，默认为0，根据图片宽度自动调整)</br>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
